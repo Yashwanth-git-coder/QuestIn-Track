@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Classes{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <h2>Chat with Bot</h2>
+</div>
+
+<footer style="position: fixed; bottom: 15%; width: 100%;">
+    <div class="container" style="margin-top: 20px; display: flex; justify-content: center;">
+        <form method="Post" action="{{ url_for('chatbot' ) }}" style="display: flex; align-items: center;">
+            <input type="text" id="message" name="message" required style="padding: 10px; margin-right: 10px; border-radius: 5px; border: 2px solid #ccc;">
+            <button type="submit" style="padding: 10px 20px; border: none; background-color: #007bff; color: white; border-radius: 5px; cursor: pointer;">Send</button>
+        </form>
+    </div>
+</footer>
+
+{% endblock %}

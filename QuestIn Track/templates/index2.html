@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Track Online{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">👨‍💻 Track the class 💻</h1>
+  <p class="lead">Want to see your online Edu.. information?</p>
+  <hr class="my-4">
+  <p>You've found the right place! Checkout online Edu.. information like, classes, attendance etc..</p>
+        <a class="btn btn-warning btn-lg" href="{{url_for('view_classes')}}" role="button">Scheduled Classes</a>
+            <a class="btn btn-warning btn-lg" href="{{url_for('add_class')}}" role="button">Schedule Class</a>
+
+</div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>AI Report Generator</title>-->
+<!--    &lt;!&ndash; Add any necessary styling here &ndash;&gt;-->
+<!--    <style>-->
+<!--        /* Your styles for the form */-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            line-height: 1.6;-->
+<!--            margin: 20px;-->
+<!--        }-->
+<!--        form {-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            margin-top: 50px;-->
+<!--        }-->
+<!--        input[type="text"] {-->
+<!--            padding: 10px;-->
+<!--            margin-right: 10px;-->
+<!--            border-radius: 5px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            width: 300px;-->
+<!--        }-->
+<!--        button[type="submit"] {-->
+<!--            padding: 10px 20px;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            background-color: #007bff;-->
+<!--            color: white;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>AI Report Generator</h1>-->
+<!--    <form action="/generate_report_and_download" method="POST">-->
+<!--        <input type="text" name="topic" placeholder="Enter Topic for Report" required>-->
+<!--        <button type="submit">Generate Report</button>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+{% extends 'base.html' %}
+{% block title %}Report{% endblock %}
+
+{% block content %}
+    <style>
+        /* Your styles for the form */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+<!--            margin: 10px;-->
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
+    <h1>AI Report Generator</h1>
+    <form id="reportForm" action="/generate_report_and_download" method="POST">
+        <input type="text" name="topic" id="topicInput" placeholder="Enter Topic for Report" required>
+        <button type="submit">Generate Report</button>
+    </form>
+
+    <script>
+        document.getElementById('reportForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission via regular method
+
+            const topic = document.getElementById('topicInput').value;
+
+            // Create a hidden field and append it to the form
+            const hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', 'topic');
+            hiddenInput.setAttribute('value', topic);
+            document.getElementById('reportForm').appendChild(hiddenInput);
+
+            // Submit the form with the added hidden field
+            document.getElementById('reportForm').submit();
+        });
+    </script>
+{% endblock %}

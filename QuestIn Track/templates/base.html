@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    {% block styles %}
+    <!-- Load Bootstrap-Flask CSS here -->
+    {{ bootstrap.load_css() }}
+    <!-- Link to the styles.css here to apply styling to all the child templates.-->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <style>
+        /* Custom CSS */
+        .custom-nav-item a.nav-link {
+          color: white; /* Change the color code as needed */
+          font-weight: bold;
+        }
+    </style>
+
+  </head>
+  <body>
+
+    <header class="d-flex justify-content-center py-3" style="background-color: #333; color: white;">
+        <ul class="nav nav-pills">
+                    <li class="nav-item custom-nav-item"><a href="{{url_for('get_all_posts')}}" class="nav-link" aria-current="page">Notice</a></li>
+        <li class="nav-item custom-nav-item"><a href="{{url_for('study_material')}}" class="nav-link" aria-current="page">Materials</a></li>
+        <li class="nav-item custom-nav-item"><a href="{{url_for('attendance_report')}}" class="nav-link">Attendance</a></li>
+        <li class="nav-item custom-nav-item"><a href="{{url_for('report')}}" class="nav-link">Report</a></li>
+        <li class="nav-item custom-nav-item"><a href="{{url_for('chat')}}" class="nav-link">Doubts</a></li>
+        <li class="nav-item custom-nav-item"><a href="{{url_for('profile')}}" class="nav-link">Progress Report</a></li>
+            <li class="nav-item custom-nav-item"><a href="{{url_for('logout')}}" class="nav-link">Logout</a></li>
+                    <li class="nav-item custom-nav-item"><a href="{{url_for('enter_class')}}" class="nav-link">↩️</a></li>
+
+        </ul>
+    </header>
+
+
+    {% block content %}{% endblock %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Report{% endblock %}
+    <style>
+        /* Your styles for the form */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+{% block content %}
+    <h1>Downloading...</h1>
+    <p>If the download does not start automatically, <a href="#" onclick="window.history.back();">click here</a>.</p>
+{% endblock %}
